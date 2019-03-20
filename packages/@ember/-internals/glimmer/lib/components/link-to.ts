@@ -933,9 +933,9 @@ if (EMBER_GLIMMER_ANGLE_BRACKET_BUILT_INS) {
       }
 
       // 2. The last argument is possibly the `query` object.
-      let lastParam = params[params.length - 1];
+      let queryParams = params[params.length - 1];
 
-      if (lastParam && lastParam.isQueryParams) {
+      if (queryParams && queryParams.isQueryParams) {
         this.set('query', params.pop().values);
       } else {
         this.set('query', UNDEFINED);
@@ -1795,8 +1795,8 @@ if (EMBER_GLIMMER_ANGLE_BRACKET_BUILT_INS) {
       }
 
       assert(
-        'You must provide one or more parameters to the link-to component.',
-        params && params.length
+        'You must provide one or more parameters to the `{{link-to}}` component.',
+        params && params.length > 0
       );
 
       let disabledWhen = get(this, 'disabledWhen');
